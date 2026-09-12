@@ -90,7 +90,7 @@ Implemented tools:
 Example MCP tool call:
 
 ```powershell
-Invoke-WebRequest http://127.0.0.1:8091/mcp `
+Invoke-WebRequest http://127.0.0.1:8080/mcp `
   -Method POST `
   -ContentType 'application/json' `
   -Headers @{ Accept = 'application/json, text/event-stream' } `
