@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guardian AI</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Alexa+ Household Safety Agent</p>
+          <h1>Guardian AI</h1>
+        </div>
+        <div class="risk-pill" id="riskPill">LOW RISK</div>
+      </section>
+
+      <section class="layout">
+        <aside class="control-panel">
+          <section class="panel">
+            <h2>Demo Script</h2>
+            <button id="resetDemo" type="button">Reset</button>
+            <button id="activateGuardian" class="primary" type="button">Alexa: I'm Leaving</button>
+            <button id="expectedDelivery" type="button">Ring: Expected Delivery</button>
+            <button id="unknownVisitor" type="button">Ring: Unknown Visitor</button>
+            <button id="startWellness" type="button">Check On Mom</button>
+            <button id="secondMiss" type="button">Mom Missed 2nd Check-In</button>
+            <button id="unsafeUnlock" type="button">Unsafe Unlock Request</button>
+            <button id="momResponds" type="button">Mom Responds</button>
+            <button id="packageDelivery" type="button">Package Delivery</button>
+          </section>
+
+          <section class="panel">
+            <h2>Guardian Rules</h2>
+            <form id="ruleForm">
+              <textarea id="ruleInput" spellcheck="false">If Mom does not answer after two attempts, notify my sister.</textarea>
+              <button class="primary" type="submit">Add Rule</button>
+            </form>
+            <div id="rules" class="rules"></div>
+          </section>
+
+          <section class="panel">
+            <h2>MCP Tool Layer</h2>
+            <div id="tools" class="tools"></div>
+          </section>
+        </aside>
+
+        <section class="main-grid">
+          <section class="status-band">
+            <div>
+              <p class="eyebrow">House Mode</p>
+              <strong id="houseMode">Idle</strong>
+            </div>
+            <div>
+              <p class="eyebrow">Workflow</p>
+              <strong id="progressText">0%</strong>
+            </div>
+            <div class="meter"><span id="meterBar"></span></div>
+          </section>
+
+          <section class="panel household-panel">
+            <h2>Household Context</h2>
+            <div id="household" class="household"></div>
+          </section>
+
+          <section class="panel firetv-panel">
+            <h2>Fire TV Command Center</h2>
+            <div class="tv-screen">
+              <p class="eyebrow">Guardian</p>
+              <h3 id="tvHeadline">Guardian idle</h3>
+              <p id="tvMessage">No active incident.</p>
+              <div id="tvActions" class="tv-actions"></div>
+            </div>
+          </section>
+
+          <section class="panel incident-panel">
+            <h2>Active Incidents</h2>
+            <div id="incidents" class="incidents"></div>
+          </section>
+
+          <section class="panel decision-panel">
+            <h2>Decision Engine</h2>
+            <div id="decision" class="decision muted">No decision yet.</div>
+          </section>
+
+          <section class="panel timeline-panel">
+            <h2>Audit Timeline</h2>
+            <ol id="timeline" class="timeline"></ol>
+          </section>
+
+          <section class="panel mcp-panel">
+            <h2>MCP Invocation Log</h2>
+            <ol id="mcpLog" class="timeline"></ol>
+          </section>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
