@@ -89,7 +89,25 @@ Implemented tools:
 
 Example MCP tool call:
 
+Initialize the MCP session first:
+
 ```powershell
+$init = '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"guardian-demo","version":"1.0.0"}}}'
+
+Invoke-WebRequest http://127.0.0.1:8080/mcp `
+  -Method POST `
+  -ContentType 'application/json' `
+  -Headers @{ Accept = 'application/json, text/event-stream' } `
+  -Body $init
+
+$initialized = '{"jsonrpc":"2.0","method":"notifications/initialized","params":{}}'
+
+Invoke-WebRequest http://127.0.0.1:8080/mcp `
+  -Method POST `
+  -ContentType 'application/json' `
+  -Headers @{ Accept = 'application/json, text/event-stream' } `
+  -Body $initialized
+
 Invoke-WebRequest http://127.0.0.1:8080/mcp `
   -Method POST `
   -ContentType 'application/json' `
